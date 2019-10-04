@@ -2,11 +2,11 @@ function sum(firstNumber) {
 
   var total = firstNumber;
 
-  return function(nextNumber) {
+  return function sumNext(nextNumber) {
 
       if (typeof nextNumber === 'number') {
           total = total + nextNumber;
-          return arguments.callee;
+          return sumNext;
       } else {
           return total;
       }
@@ -14,4 +14,4 @@ function sum(firstNumber) {
   };
 }
 
-console.log(sum(1)(2)(3)());
+console.log(sum(1)(2)(3)(4)());
